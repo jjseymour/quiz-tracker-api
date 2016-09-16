@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do
+  quiz = Quiz.create(title: Faker::GameOfThrones.house, description: Faker::GameOfThrones.character, difficulty: Faker::Number.digit)
+
+  10.times do
+    Question.create(content: Faker::StarWars.quote, quiz_id: quiz.id)
+  end
+
+end
