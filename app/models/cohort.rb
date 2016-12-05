@@ -3,4 +3,7 @@ class Cohort < ApplicationRecord
   has_many :quizzes, through: :students
   has_many :instructor_cohorts
   has_many :instructors, through: :instructor_cohorts, class_name: 'User'
+
+
+
 end

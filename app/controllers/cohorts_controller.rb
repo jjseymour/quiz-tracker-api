@@ -5,7 +5,8 @@ class CohortsController < ApplicationController
   end
 
   def show
-    render json: Cohort.find(params[:id])
+    @cohort = Cohort.find(params[:id])
+    render json: @cohort, serializer: CohortStudentSerializer
   end
 
 end
