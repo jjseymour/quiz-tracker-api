@@ -7,8 +7,7 @@ class Auth
   end
 
   def self.decode(payload)
-    JWT.decode(payload, secret_key, true, {algorithm: ALGORITHM})
-    binding.pry
+    JWT.decode(payload, secret_key, true, {algorithm: ALGORITHM}).first
   end
 
   def self.secret_key
