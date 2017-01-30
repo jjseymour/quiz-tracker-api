@@ -10,12 +10,12 @@ end
 
 10.times do
   cohort = Cohort.create(flatiron_named: Faker::Beer.name, student_named: Faker::Beer.style, expected_student_number: Faker::Number.between(25, 32), start_date: Faker::Date.backward(100), end_date: Faker::Date.forward(100))
-  user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, instructor: true, email: Faker::Internet.email)
+  user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, instructor: true, email: Faker::Internet.email, password: "12345")
   cohort.instructors << user
   cohort.save
 end
 
 
 30.times do
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, cohort_id: Faker::Number.between(1, 10), instructor: false, email: Faker::Internet.email)
+  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, cohort_id: Faker::Number.between(1, 10), instructor: false, email: Faker::Internet.email, password: "12345")
 end
