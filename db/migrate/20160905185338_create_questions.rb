@@ -4,7 +4,6 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
       t.text :content
       t.boolean :active?
       t.references :quiz, foreign_key: true
-      t.string :possible_answers, array: true, default: []
 
       t.timestamps
     end
