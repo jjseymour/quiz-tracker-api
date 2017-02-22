@@ -47,16 +47,24 @@ ActiveRecord::Schema.define(version: 20170130031328) do
   create_table "possible_answers", force: :cascade do |t|
     t.string   "content"
     t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "answer_type"
+    t.string   "multiple_choice_short", default: [],              array: true
+    t.string   "multiple_choice_long",  default: [],              array: true
+    t.text     "long_answer"
+    t.string   "short_answer"
+    t.text     "code"
+    t.string   "code_mirror_language"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "questions", force: :cascade do |t|
     t.text     "content"
     t.boolean  "active?"
+    t.string   "code_mirror_language"
     t.integer  "quiz_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.index ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
   end
 
