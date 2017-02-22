@@ -9,6 +9,7 @@ class CreatePossibleAnswers < ActiveRecord::Migration[5.0]
       t.text :long_answer
       t.string :short_answer
       t.text :code
+      t.string :code_mirror_language
 
       t.timestamps
     end
