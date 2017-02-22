@@ -8,8 +8,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    modified_params = {title: quiz_params[:title], description: quiz_params[:description], questions_attributes: quiz_params[:questions]}
-    quiz = Quiz.new(modified_params)
+    quiz = Quiz.new(quiz_params)
     if quiz.save
       render json: quiz, include: 'questions,possible_answers'
     else
@@ -20,6 +19,6 @@ class QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:title, :description, questions: [:content, possible_answers_attributes: [:content]])
+    params.require(:quiz).permit(:title, :description, questions_attributes: [:content, possible_answers_attributes: [:content, :answer_type, :short_answer, :long_answer, :code, multiple_choice_long: [], multiple_choice_short: []]])
   end
 end
