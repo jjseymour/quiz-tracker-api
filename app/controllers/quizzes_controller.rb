@@ -19,6 +19,6 @@ class QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:title, :description, questions_attributes: [:content, possible_answers_attributes: [:content, :answer_type, :short_answer, :long_answer, :code, multiple_choice_long: [], multiple_choice_short: []]])
+    params.require(:quiz).permit(:title, :description, questions_attributes: [:code_mirror_language, :content, possible_answers_attributes: [:code_mirror_language, :content, :answer_type, :short_answer, :long_answer, :code, multiple_choice_long: [], multiple_choice_short: []]])
   end
 end
