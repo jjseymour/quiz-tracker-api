@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def create
     user = User.new(user_params)
     if params[:password] == params[:password_confirmation]
@@ -21,6 +22,14 @@ class UsersController < ApplicationController
   end
 
   def show
+    if logged_in_user
+      render json: @user
+    else
+      render json: {:errors=>
+       [{:detail=>"User not found",
+         :source=>{:pointer=>"user/err_type"}}
+       ]}, status: 404
+    end
   end
 
   def index

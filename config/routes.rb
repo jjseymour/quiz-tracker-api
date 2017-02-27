@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :answers
   resources :student_quizzes
   resources :users, except: :create
+  get 'users/:id(.:format)', to: 'users#show', id: /.*?/, format: /[^.]+/
   resources :quizzes
   resources :cohorts
 end
