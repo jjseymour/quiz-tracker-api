@@ -1,7 +1,8 @@
 class StudentQuizzesController < ApplicationController
-  before_action :set_student_quiz, except: [:create, :index]
+  before_action :set_student_quiz, except: [:create, :index, :show]
 
   def index
+
   end
 
   def create
@@ -14,6 +15,15 @@ class StudentQuizzesController < ApplicationController
   end
 
   def show
+    @student_quiz = StudentQuiz.find_by(student_id: logged_in_user.id, quiz_id: params[:quizId])
+    if @student_quiz
+      render json: @student_quiz
+    else
+      render json: {:errors=>
+           [{:detail=>"Could not find student's quiz",
+              :source=>{:pointer=>"student_quiz/err_type"}}
+           ]}, status: 404
+    end
   end
 
   def edit
