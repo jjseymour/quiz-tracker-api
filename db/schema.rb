@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170130031328) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.boolean  "correct?"
+    t.boolean  "correct"
     t.text     "content"
     t.integer  "student_quiz_id"
     t.integer  "question_id"

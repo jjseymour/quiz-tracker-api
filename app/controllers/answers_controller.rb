@@ -1,6 +1,8 @@
 class AnswersController < ApplicationController
   def create
-    answer = Answer.new(answer_params)    
+    answer = Answer.find_or_initialize_by(student_quiz_id: params[:answer][:student_quiz_id], question_id: params[:answer][:question_id])    
+    answer.content = params[:answer][:content]
+    answer.check_answer
     if answer.save
       render json: {studentQuiz: answer.student_quiz, studentAnswers: answer.student_quiz.answers} 
     else
