@@ -19,7 +19,7 @@ Welcome to the quiz-tracker-api!
 2. Start server
 
     ```
-    # server will run on localhost:3010
+    # server will run on localhost:3000
     rails s
     ```
 
