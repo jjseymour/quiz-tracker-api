@@ -1,24 +1,43 @@
-# README
+Welcome to the quiz-tracker-api!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Getting Started
 
-Things you may want to cover:
+- Fork this repo
+- [Follow instructions to setup fork locally if needed](https://github.com/jjseymour/quiz-tracker-api/wiki/Setup-local-fork)
 
-* Ruby version
+## Setup
 
-* System dependencies
+1. Install
 
-* Configuration
+    ```
+    bundle install
+    rake db:create
+    rake db:migrate
+    rake db:seed
+    ```
 
-* Database creation
+2. Start server
 
-* Database initialization
+    ```
+    # server will run on localhost:3010
+    rails s
+    ```
 
-* How to run the test suite
+# git workflow
 
-* Services (job queues, cache servers, search engines, etc.)
+This repo uses the forked model, where each person works on their own version of the repo.
+When it is time to merge your changes:
+- make a pull request from your branch to the master branch of what you forked
+- when the pull request is approved, another member will merge into master
 
-* Deployment instructions
+- main repository: master
 
-* ...
+## git commit messages
+
+Good code comes with good commit messages. This [article](https://chris.beams.io/posts/git-commit/) is a good overview on commit messages and how to write good commit messages.
+
+Add link to story/issue in the pull request message with full URL. (JIRA story numbers can change!)
+
+# Specs
+
+Reference: http://www.betterspecs.org
